@@ -1,7 +1,6 @@
-import 'package:firebase_core/firebase_core.dart';
 import 'package:flutter/material.dart';
 import 'package:laghazala/home.dart';
-import 'package:laghazala/profil.dart';
+import 'package:laghazala/ourtraining.dart';
 import 'package:laghazala/welcome.dart';
 
 void main() async {

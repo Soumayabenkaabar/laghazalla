@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_adaptive_scaffold/flutter_adaptive_scaffold.dart';
+import 'package:laghazala/ourtraining.dart';
 import 'package:laghazala/profil.dart';
 
 void main() {
@@ -56,6 +57,14 @@ class _MyHomePageState extends State<MyHomePage>
 
   // The index of the navigation screen. Only impacts body/secondaryBody
   int _navigationIndex = 0;
+
+  List<Widget> screens = [
+    Container(child: MyHomePage(),),
+    ourtraining(),
+    Container(color: Colors.red),
+    Container(color: Colors.blue),
+    Container(color: Colors.green),
+  ];
 
   // The controllers used for the staggered animation of the navigation elements.
   late AnimationController _inboxIconSlideController;
@@ -261,16 +270,7 @@ class _MyHomePageState extends State<MyHomePage>
                 // The conditional here is for navigation screens. The first
                 // screen shows the main screen and every other screen shows
                 //  ExamplePage.
-                builder: (_) => (_navigationIndex == 0)
-                    ? Padding(
-                        padding: const EdgeInsets.fromLTRB(0, 32, 0, 0),
-                        child: _ItemList(
-                          selected: selected,
-                          items: _allItems,
-                          selectCard: selectCard,
-                        ),
-                      )
-                    : const _ExamplePage(),
+                builder: (_) => screens[_navigationIndex],
               ),
             },
           ),
@@ -461,7 +461,7 @@ class _ItemList extends StatelessWidget {
                 suffixIcon: Padding(
                   padding: const EdgeInsets.fromLTRB(20, 0, 20, 0),
                   child: CircleAvatar(
-                    radius: 20,
+                    radius: 25,
                     child: Image.asset(
                       'assets/images/A.png',
                       width: 50,
@@ -483,32 +483,31 @@ class _ItemList extends StatelessWidget {
               ),
             ),
           ),
-Expanded(
-  child: LayoutBuilder(
-    builder: (context, constraints) {
-      double aspectRatio = constraints.maxWidth >= 600 ? 5 / 5 : 1 / 1;
-      return GridView.builder(
-        gridDelegate: SliverGridDelegateWithFixedCrossAxisCount(
-          crossAxisCount: constraints.maxWidth >= 600 ? 3 : 1,
-          crossAxisSpacing: 8.0,
-          mainAxisSpacing: 8.0,
-          childAspectRatio: aspectRatio,
-        ),
-        itemCount: items.length,
-        itemBuilder: (BuildContext context, int index) {
-          return _ItemListTile(
-            item: items[index],
-            email: items[index].emails![0],
-            selectCard: selectCard,
-            selected: selected,
-          );
-        },
-      );
-    },
-  ),
-),
-
-
+          Expanded(
+            child: LayoutBuilder(
+              builder: (context, constraints) {
+                double aspectRatio =
+                    constraints.maxWidth >= 600 ? 5 / 5 : 1 / 1;
+                return GridView.builder(
+                  gridDelegate: SliverGridDelegateWithFixedCrossAxisCount(
+                    crossAxisCount: constraints.maxWidth >= 600 ? 3 : 1,
+                    crossAxisSpacing: 8.0,
+                    mainAxisSpacing: 8.0,
+                    childAspectRatio: aspectRatio,
+                  ),
+                  itemCount: items.length,
+                  itemBuilder: (BuildContext context, int index) {
+                    return _ItemListTile(
+                      item: items[index],
+                      email: items[index].emails![0],
+                      selectCard: selectCard,
+                      selected: selected,
+                    );
+                  },
+                );
+              },
+            ),
+          ),
         ],
       ),
     );
@@ -594,7 +593,12 @@ class _ItemListTile extends StatelessWidget {
                 SizedBox(
                   width: MediaQuery.of(context).size.width,
                   child: (email.bodyImage != '')
-                      ? Image.asset(email.bodyImage,fit: BoxFit.cover,height: 150,width: 100,)
+                      ? Image.asset(
+                          email.bodyImage,
+                          fit: BoxFit.cover,
+                          height: 150,
+                          width: 100,
+                        )
                       : Container(),
                 ),
               ],
@@ -678,8 +682,9 @@ class _EmailTile extends StatelessWidget {
               const SizedBox(height: 9),
               SizedBox(
                   width: MediaQuery.of(context).size.width,
-                  child:
-                      (bodyImage != '') ? Image.asset(bodyImage, fit: BoxFit.cover) : Container()),
+                  child: (bodyImage != '')
+                      ? Image.asset(bodyImage, fit: BoxFit.cover)
+                      : Container()),
               const SizedBox(height: 10),
               Row(
                 mainAxisAlignment: MainAxisAlignment.spaceAround,
@@ -791,8 +796,7 @@ const List<_Item> _allItems = <_Item>[
         recipients: 'me, Ziad and Lily',
         image: 'images/strawberry.png',
         time: '20 min',
-                bodyImage: 'assets/images/bg.jpg',
-
+        bodyImage: 'assets/images/bg.jpg',
         body:
             'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Integer nec gravida tellus, vel scelerisque nisi. Mauris egestas, augue nec dictum tempus, diam sapien luctus odio, a posuere sem neque at nulla. Vivamus pulvinar nisi et dapibus dapibus. Donec euismod pellentesque ultrices. Vivamus quis condimentum metus, in venenatis lorem. Proin suscipit tincidunt eleifend. Praesent a nisi ac ipsum sodales gravida.',
       ),
