@@ -1,7 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:laghazala/home.dart';
-import 'package:laghazala/ourtraining.dart';
-import 'package:laghazala/welcome.dart';
+
 
 void main() async {
 

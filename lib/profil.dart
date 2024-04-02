@@ -1,7 +1,11 @@
 import 'package:flutter/material.dart';
 
-class Profile extends StatelessWidget {
-  const Profile({Key? key}) : super(key: key);
+void main() {
+  runApp(profile());
+}
+
+class profile extends StatelessWidget {
+  const profile({Key? key}) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
@@ -23,137 +27,134 @@ class Profile extends StatelessWidget {
                         ?.copyWith(fontWeight: FontWeight.bold),
                   ),
                   const SizedBox(height: 16),
-                Column(
-  mainAxisSize: MainAxisSize.max,
-  children: [
-    Padding(
-      padding: EdgeInsetsDirectional.fromSTEB(20, 0, 20, 0),
-      child: Container(
-        width: double.infinity,
-        height: 60,
-        decoration: BoxDecoration(
-          boxShadow: [
-            BoxShadow(
-              blurRadius: 5,
-              color: Color(0x3416202A),
-              offset: Offset(0, 2),
-            )
-          ],
-          borderRadius: BorderRadius.circular(12),
-          shape: BoxShape.rectangle,
-        ),
-        child: Padding(
-          padding: EdgeInsets.all(8),
-          child: Row(
-            mainAxisSize: MainAxisSize.max,
-            children: [
-              Padding(
-                padding: EdgeInsetsDirectional.fromSTEB(12, 0, 0, 0),
-                child: Text(
-                  'Change langue',
-                ),
-              ),
-              Expanded(
-                child: Align(
-                  alignment: AlignmentDirectional(0.9, 0),
-                  child: Icon(
-                    Icons.arrow_forward_ios,
-                    size: 18,
+                  Column(
+                    mainAxisSize: MainAxisSize.max,
+                    children: [
+                      Padding(
+                        padding: EdgeInsetsDirectional.fromSTEB(20, 0, 20, 0),
+                        child: Container(
+                          width: double.infinity,
+                          height: 60,
+                          decoration: BoxDecoration(
+                            boxShadow: [
+                              BoxShadow(
+                                blurRadius: 5,
+                                color: Color(0x3416202A),
+                                offset: Offset(0, 2),
+                              )
+                            ],
+                            borderRadius: BorderRadius.circular(12),
+                            shape: BoxShape.rectangle,
+                          ),
+                          child: Padding(
+                            padding: EdgeInsets.all(8),
+                            child: Row(
+                              mainAxisSize: MainAxisSize.max,
+                              children: [
+                                Padding(
+                                  padding: EdgeInsetsDirectional.fromSTEB(
+                                      12, 0, 0, 0),
+                                  child: Text(
+                                    'Change langue',
+                                  ),
+                                ),
+                                Expanded(
+                                  child: Align(
+                                    alignment:
+                                        AlignmentDirectional(0.9, 0),
+                                    child: Icon(
+                                      Icons.arrow_forward_ios,
+                                      size: 18,
+                                    ),
+                                  ),
+                                ),
+                              ],
+                            ),
+                          ),
+                        ),
+                      ),
+                      Padding(
+                        padding: EdgeInsetsDirectional.fromSTEB(20, 12, 20, 0),
+                        child: Container(
+                          width: double.infinity,
+                          height: 60,
+                          decoration: BoxDecoration(
+                            boxShadow: [
+                              BoxShadow(
+                                blurRadius: 5,
+                                color: Color(0x3416202A),
+                                offset: Offset(0, 2),
+                              )
+                            ],
+                            borderRadius: BorderRadius.circular(12),
+                            shape: BoxShape.rectangle,
+                          ),
+                          child: Padding(
+                            padding: EdgeInsets.all(8),
+                            child: Row(
+                              mainAxisSize: MainAxisSize.max,
+                              children: [
+                                Padding(
+                                  padding: EdgeInsetsDirectional.fromSTEB(
+                                      12, 0, 0, 0),
+                                  child: Text(
+                                    'Edit Profile',
+                                  ),
+                                ),
+                                Expanded(
+                                  child: Align(
+                                    alignment:
+                                        AlignmentDirectional(0.9, 0),
+                                    child: Icon(
+                                      Icons.arrow_forward_ios,
+                                      size: 18,
+                                    ),
+                                  ),
+                                ),
+                              ],
+                            ),
+                          ),
+                        ),
+                      ),
+                      Padding(
+                        padding: EdgeInsetsDirectional.fromSTEB(0, 20, 0, 20),
+                        child: Row(
+                          mainAxisSize: MainAxisSize.max,
+                          mainAxisAlignment: MainAxisAlignment.center,
+                          children: [],
+                        ),
+                      ),
+                    ],
                   ),
-                ),
-              ),
-            ],
-          ),
-        ),
-      ),
-    ),
-    Padding(
-      padding: EdgeInsetsDirectional.fromSTEB(20, 12, 20, 0),
-      child: Container(
-        width: double.infinity,
-        height: 60,
-        decoration: BoxDecoration(
-          boxShadow: [
-            BoxShadow(
-              blurRadius: 5,
-              color: Color(0x3416202A),
-              offset: Offset(0, 2),
-            )
-          ],
-          borderRadius: BorderRadius.circular(12),
-          shape: BoxShape.rectangle,
-        ),
-        child: Padding(
-          padding: EdgeInsets.all(8),
-          child: Row(
-            mainAxisSize: MainAxisSize.max,
-            children: [
-              Padding(
-                padding: EdgeInsetsDirectional.fromSTEB(12, 0, 0, 0),
-                child: Text(
-                  'Edit Profile',
-                ),
-              ),
-              Expanded(
-                child: Align(
-                  alignment: AlignmentDirectional(0.9, 0),
-                  child: Icon(
-                    Icons.arrow_forward_ios,
-                    size: 18,
-                  ),
-                ),
-              ),
-            ],
-          ),
-        ),
-      ),
-    ),
-    Padding(
-      padding: EdgeInsetsDirectional.fromSTEB(0, 20, 0, 20),
-      child: Row(
-        mainAxisSize: MainAxisSize.max,
-        mainAxisAlignment: MainAxisAlignment.center,
-      
-            ),
-          ),
-        ],
-      ),
                 ],
-                
               ),
-              
-              
             ),
-            
           ),
-          
         ],
       ),
     );
   }
 }
 
-
-  Widget _singleItem(BuildContext context, ProfileInfoItem item) => Column(
-        mainAxisAlignment: MainAxisAlignment.center,
-        children: [
-          Padding(
-            padding: const EdgeInsets.all(8.0),
-            child: Text(
-              item.value.toString(),
-              style: const TextStyle(
-                fontWeight: FontWeight.bold,
-                fontSize: 20,
-              ),
+Widget _singleItem(BuildContext context, ProfileInfoItem item) => Column(
+      mainAxisAlignment: MainAxisAlignment.center,
+      children: [
+        Padding(
+          padding: const EdgeInsets.all(8.0),
+          child: Text(
+            item.value.toString(),
+            style: const TextStyle(
+              fontWeight: FontWeight.bold,
+              fontSize: 20,
             ),
           ),
-          Text(
-            item.title,
-            style: Theme.of(context).textTheme.caption,
-          )
-        ],
-      );
-
+        ),
+        Text(
+          item.title,
+          style: Theme.of(context).textTheme.caption,
+        )
+      ],
+    );
 
 class ProfileInfoItem {
   final String title;
@@ -213,18 +214,11 @@ class _TopPortion extends StatelessWidget {
                     ),
                   ),
                 ),
-                // Generated code for this Column Widget...
-
-    
-
-
               ],
             ),
           ),
         ),
-        
       ],
-      
     );
   }
 }

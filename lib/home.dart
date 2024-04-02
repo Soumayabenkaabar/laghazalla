@@ -1,6 +1,5 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_adaptive_scaffold/flutter_adaptive_scaffold.dart';
-import 'package:laghazala/ourtraining.dart';
 import 'package:laghazala/profil.dart';
 
 void main() {
@@ -60,7 +59,7 @@ class _MyHomePageState extends State<MyHomePage>
 
   List<Widget> screens = [
     Container(child: MyHomePage(),),
-    ourtraining(),
+    Container(color: Colors.yellow),
     Container(color: Colors.red),
     Container(color: Colors.blue),
     Container(color: Colors.green),
